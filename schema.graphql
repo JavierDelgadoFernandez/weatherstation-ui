@@ -1,0 +1,14 @@
+type Measure {
+    humidity: Float
+    pressure: Float
+    temperature: Float
+    epoch: Int
+}
+
+type Query {
+    measures(from: Int, to: Int): [Measure]
+}
+
+schema {
+    query: Query
+}
