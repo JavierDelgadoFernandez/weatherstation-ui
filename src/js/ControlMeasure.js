@@ -41,7 +41,7 @@ export default createFragmentContainer(
             </Statistic>
             <Statistic>
                 <Statistic.Value>
-                    {`${measure.pressure} Pa`}
+                    {`${measure.pressure} hPa`}
                 </Statistic.Value>
                 <Statistic.Label>
                     Pressure

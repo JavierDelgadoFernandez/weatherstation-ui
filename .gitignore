@@ -10,3 +10,4 @@ node_modules/
 build/
 production/
 coverage/
+__generated__/

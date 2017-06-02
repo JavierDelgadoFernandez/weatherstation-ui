@@ -21,16 +21,15 @@ import {Link} from "react-router-dom";
 import React from "react";
 
 export default function App({children}) {
-    return <div>
-        <Menu>
-            <UIContainer>
-                <Menu.Item as={Link} header to="/">
-                    WeatherStation
-                </Menu.Item>
-            </UIContainer>
+    return <UIContainer>
+        <Menu pointing secondary>
+            <Menu.Item as={Link} header to="/">
+                WeatherStation
+            </Menu.Item>
+            <Menu.Item as={Link} to="/historical/">
+                Historical
+            </Menu.Item>
         </Menu>
-        <UIContainer>
-            {children}
-        </UIContainer>
-    </div>;
+        {children}
+    </UIContainer>;
 }

@@ -24,12 +24,13 @@ import {
 } from "react-router-dom";
 import Environment from "./Environment";
 import Error from "./Error";
+import HomeHistorical from "./HomeHistorical";
 import HomeHome from "./HomeHome";
 import Loading from "./Loading";
 import React from "react";
 import ReactDOM from "react-dom";
 
-const RelayRoute = ({component, query, ...rest}) => (
+const RelayRoute = ({component, query, variables, ...rest}) => (
     <Route {...rest} render={() => (
         <QueryRenderer
             environment={Environment}
@@ -41,17 +42,31 @@ const RelayRoute = ({component, query, ...rest}) => (
                     return React.createElement(component, {data: props});
                 }
                 return <Loading />;
-            }} />
+            }}
+            variables={variables} />
     )} />
 );
 
 ReactDOM.render(
     <Router>
         <Switch>
-            <RelayRoute component={HomeHome} exact path="/" query={graphql`
-                query mainQuery {
-                    ...HomeHome
-                }`} />
+            <RelayRoute component={HomeHome} exact path="/"
+                query={graphql`
+                    query mainHomeHomeQuery {
+                        ...HomeHome
+                    }`
+                } />
+            <RelayRoute component={HomeHistorical} exact path="/historical/"
+                query={graphql`
+                    query mainHomeHistoricalQuery($from: Int, $to: Int) {
+                        ...HomeHistorical
+                    }`
+                }
+                variables={{
+                    from: (new Date()).getTime() - 1000*60*60*24*1,
+                    to: (new Date()).getTime(),
+                }}
+                />
         </Switch>
     </Router>,
     document.getElementById("application")

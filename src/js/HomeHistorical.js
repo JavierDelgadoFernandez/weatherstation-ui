@@ -21,25 +21,24 @@ import {
     createFragmentContainer,
     graphql
 } from "react-relay";
-import ControlMeasure from "./ControlMeasure";
+import ControlMeasureChart from "./ControlMeasureChart";
 import HomeLayout from "./HomeLayout";
 import React from "react";
 
 export default createFragmentContainer(
-    ({data: {measures: [measure]}}) =>
+    ({data: {measures}}) =>
         <HomeLayout>
             <Container textAlign="center">
-                <Header as="h2" textAlign="center">
-                    Last measure: {new Date(measure.epoch).toLocaleString ()}
+                <Header as="h3" textAlign="center">
+                    Evolution of the last 24 hours
                 </Header>
-                <ControlMeasure data={measure} />
+                <ControlMeasureChart data={measures} />
             </Container>
         </HomeLayout>,
     graphql`
-        fragment HomeHome on Query {
-            measures {
-                epoch
-                ...ControlMeasure
+        fragment HomeHistorical on Query {
+            measures(from: $from, to: $to) {
+                ...ControlMeasureChart
             }
         }`,
 )
