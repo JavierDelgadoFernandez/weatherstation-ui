@@ -25,7 +25,7 @@ export default createFragmentContainer(
         <Statistic.Group widths="three">
             <Statistic>
                 <Statistic.Value>
-                    {`${measure.temperature} °C`}
+                    {`${Math.round(measure.temperature*10)/10} °C`}
                 </Statistic.Value>
                 <Statistic.Label>
                     Temperature
@@ -33,7 +33,7 @@ export default createFragmentContainer(
             </Statistic>
             <Statistic>
                 <Statistic.Value>
-                    {`${measure.humidity} %`}
+                    {`${Math.round(measure.humidity)} %`}
                 </Statistic.Value>
                 <Statistic.Label>
                     Humidity
@@ -41,7 +41,7 @@ export default createFragmentContainer(
             </Statistic>
             <Statistic>
                 <Statistic.Value>
-                    {`${measure.pressure} hPa`}
+                    {`${Math.round(measure.pressure/100)} hPa`}
                 </Statistic.Value>
                 <Statistic.Label>
                     Pressure

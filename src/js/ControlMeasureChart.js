@@ -64,19 +64,19 @@ const chartConfiguration = {
             yAxes: [
                 {
                     id: "temperature-axis",
-                    ticks: {callback: (value) => `${value} °C`},
+                    ticks: {callback: (value) => `${Math.round(value*10)/10} °C`},
                     type: "linear",
                 },
                 {
                     gridLines: {drawOnChartArea: false},
                     id: "humidity-axis",
-                    ticks: {callback: (value) => `${value} %`},
+                    ticks: {callback: (value) => `${Math.round(value*10)/10} %`},
                     type: "linear",
                 },
                 {
                     gridLines: {drawOnChartArea: false},
                     id: "pressure-axis",
-                    ticks: {callback: (value) => `${value} hPa`},
+                    ticks: {callback: (value) => `${Math.round(value)} hPa`},
                     type: "linear",
                 },
             ],
