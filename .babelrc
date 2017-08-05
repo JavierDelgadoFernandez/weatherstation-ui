@@ -1,6 +1,6 @@
 {
-  "plugins": [
-    "relay"
-  ],
-  "presets": ["es2015", "react", "stage-3"]  
+    "plugins": [
+        "relay"
+    ],
+    "presets": ["es2015", "react", "stage-3"]  
 }

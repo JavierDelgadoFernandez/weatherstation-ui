@@ -11,3 +11,4 @@ build/
 production/
 coverage/
 __generated__/
+yarn.lock
